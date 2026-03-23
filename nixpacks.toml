@@ -1,13 +1,18 @@
 # nixpacks.toml — Yuy bot: Node.js + Python in one container
-# DO NOT list nixPkgs manually — nixpacks auto-installs them via providers.
-# Listing them manually causes a Nix profile conflict (two Python derivations).
+# Providers auto-install Node 20 + Python 3.11 via Nix — don't list nixPkgs manually.
+# pip3 is used explicitly because nixpacks puts it at pip3, not pip.
 
 providers = ["node", "python"]
 
 [phases.install]
 cmds = [
-  "npm ci --omit=dev",
-  "pip install aiohttp beautifulsoup4 readability-lxml lxml"
+  "npm ci --omit=dev"
+]
+
+[phases.pythonDeps]
+dependsOn = ["install"]
+cmds = [
+  "pip3 install aiohttp beautifulsoup4 readability-lxml lxml"
 ]
 
 [start]
