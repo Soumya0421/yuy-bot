@@ -1,0 +1,13 @@
+# railway.toml — Railway deployment configuration for Yuy bot
+# Docs: https://docs.railway.com/builds/build-configuration
+
+[build]
+builder = "nixpacks"
+nixpacksConfigPath = "nixpacks.toml"
+# Deploy slash commands then start the bot
+buildCommand = "npm install && node src/deploy-commands.js"
+
+[deploy]
+startCommand = "node src/index.js"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5

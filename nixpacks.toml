@@ -1,0 +1,15 @@
+# nixpacks.toml — Yuy bot needs Node.js (main bot) + Python 3 (web scraper)
+
+providers = ["node", "python"]
+
+[phases.setup]
+nixPkgs = ["nodejs_20", "python311", "python311Packages.pip"]
+
+[phases.install]
+cmds = [
+  "npm ci --omit=dev",
+  "pip install aiohttp beautifulsoup4 readability-lxml lxml --break-system-packages"
+]
+
+[start]
+cmd = "node src/index.js"

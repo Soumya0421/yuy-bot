@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Environment — NEVER commit this
+.env
+
+# Firebase service account key — NEVER commit this
+firebase-key.json
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+*.tmp
