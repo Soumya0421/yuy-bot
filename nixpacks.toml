@@ -1,14 +1,13 @@
-# nixpacks.toml — Yuy bot needs Node.js (main bot) + Python 3 (web scraper)
+# nixpacks.toml — Yuy bot: Node.js + Python in one container
+# DO NOT list nixPkgs manually — nixpacks auto-installs them via providers.
+# Listing them manually causes a Nix profile conflict (two Python derivations).
 
 providers = ["node", "python"]
-
-[phases.setup]
-nixPkgs = ["nodejs_20", "python311", "python311Packages.pip"]
 
 [phases.install]
 cmds = [
   "npm ci --omit=dev",
-  "pip install aiohttp beautifulsoup4 readability-lxml lxml --break-system-packages"
+  "pip install aiohttp beautifulsoup4 readability-lxml lxml"
 ]
 
 [start]

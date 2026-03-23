@@ -1,20 +1,17 @@
-# Dependencies
-node_modules/
-
-# Environment — NEVER commit this
+# If you ever push to git, these should NOT be committed
 .env
-
-# Firebase service account key — NEVER commit this
 firebase-key.json
 
-# Logs
-*.log
-logs/
+# Node modules (never commit these)
+node_modules/
 
-# OS files
+# Runtime cache
+.cache/
+
+# OS clutter
 .DS_Store
 Thumbs.db
 
-# Temporary files
-tmp/
-*.tmp
+# IDE
+.vscode/
+.idea/
